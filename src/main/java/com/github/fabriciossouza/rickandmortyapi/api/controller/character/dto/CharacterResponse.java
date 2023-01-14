@@ -1,13 +1,16 @@
-package com.github.fabriciossouza.rickandmortyapi.domain.client.rickmorty.dto;
+package com.github.fabriciossouza.rickandmortyapi.api.controller.character.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@AllArgsConstructor
+
+
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class CharacterResponse {
 
@@ -17,7 +20,8 @@ public class CharacterResponse {
     private String url;
     private String created;
 
-    private List<String> episode;
+    @JsonProperty("Episodes")
+    private List<CharacterEpisodeResponse> episodes;
 
 
 }

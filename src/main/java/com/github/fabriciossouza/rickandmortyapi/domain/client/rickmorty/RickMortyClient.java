@@ -6,6 +6,7 @@ import com.github.fabriciossouza.rickandmortyapi.domain.client.ClientResponse;
 import com.github.fabriciossouza.rickandmortyapi.domain.client.rickmorty.dto.CharacterResponse;
 import com.github.fabriciossouza.rickandmortyapi.domain.client.rickmorty.dto.EpisodeResponse;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,7 +19,8 @@ import java.util.Map;
 public interface RickMortyClient {
 
     @GetMapping("/api/character?{filters}")
-    ResponseEntity<ClientResponse<CharacterResponse>> getCharacters(@RequestParam("filters") Map<String, String> filters);
+    ResponseEntity<ClientResponse<CharacterResponse>> getCharacters(@RequestParam("filters") Map<String, String> filters,
+                                                                    Pageable pageable);
 
     @GetMapping("/api/episode/{ids}")
     ResponseEntity<ClientResponse<EpisodeResponse>>  getEpisodes(@RequestParam("ids") String... ids);

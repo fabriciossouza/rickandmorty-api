@@ -1,23 +1,20 @@
-package com.github.fabriciossouza.rickandmortyapi.domain.client.rickmorty.dto;
+package com.github.fabriciossouza.rickandmortyapi.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-public class CharacterResponse {
+public class Episode {
 
     private Integer id;
     private String name;
-    private String status;
+    private String air;
+    private String episode;
     private String url;
     private String created;
-
-    private List<String> episode;
-
 
 }

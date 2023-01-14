@@ -1,7 +1,8 @@
 package com.github.fabriciossouza.rickandmortyapi.domain.service;
 
 import com.github.fabriciossouza.rickandmortyapi.domain.client.ClientResponse;
-import com.github.fabriciossouza.rickandmortyapi.domain.client.model.Character;
+import org.springframework.data.domain.Pageable;
+import com.github.fabriciossouza.rickandmortyapi.domain.model.Character;
 import com.github.fabriciossouza.rickandmortyapi.domain.client.rickmorty.RickMortyClient;
 import com.github.fabriciossouza.rickandmortyapi.domain.client.rickmorty.dto.CharacterResponse;
 import lombok.RequiredArgsConstructor;
@@ -20,11 +21,11 @@ public class CharacterService {
     private static final String FILTER_CHARACTER_BY_NAME = "name";
     private final RickMortyClient rickMortyClient;
 
-    public List<Character> getCharacters(final String name) {
+    public List<Character> getCharacters(final String name, Pageable pageable) {
 
         var filters = getFilters(name);
 
-        var response = rickMortyClient.getCharacters(filters);
+        var response = rickMortyClient.getCharacters(filters, pageable);
 
         final ClientResponse<CharacterResponse> responseClientResponse =  response.getBody();
         List<CharacterResponse> characters = responseClientResponse.getResults();

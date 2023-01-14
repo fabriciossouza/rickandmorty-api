@@ -1,6 +1,6 @@
-package com.github.fabriciossouza.rickandmortyapi.domain.client.model.decorator;
+package com.github.fabriciossouza.rickandmortyapi.domain.model.decorator;
 
-import com.github.fabriciossouza.rickandmortyapi.domain.client.model.Episode;
+import com.github.fabriciossouza.rickandmortyapi.domain.model.Episode;
 
 import java.util.List;
 
