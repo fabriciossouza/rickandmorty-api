@@ -4,14 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class ClientResponse<T> {
+public class ResponseInfo {
+    private Integer count;
+    private Integer pages;
+    private String next;
+    private String prev;
 
-    private List<T> results;
-
-    private ClientResponseInfo info;
 }

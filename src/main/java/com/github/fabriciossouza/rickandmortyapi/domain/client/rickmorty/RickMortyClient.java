@@ -2,7 +2,7 @@ package com.github.fabriciossouza.rickandmortyapi.domain.client.rickmorty;
 
 
 import com.github.fabriciossouza.rickandmortyapi.core.client.CustomErrorDecoder;
-import com.github.fabriciossouza.rickandmortyapi.domain.client.ClientResponse;
+import com.github.fabriciossouza.rickandmortyapi.domain.client.Response;
 import com.github.fabriciossouza.rickandmortyapi.domain.client.rickmorty.dto.CharacterResponse;
 import com.github.fabriciossouza.rickandmortyapi.domain.client.rickmorty.dto.EpisodeResponse;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -19,10 +19,11 @@ import java.util.Map;
 public interface RickMortyClient {
 
     @GetMapping("/api/character?{filters}")
-    ResponseEntity<ClientResponse<CharacterResponse>> getCharacters(@RequestParam("filters") Map<String, String> filters,
-                                                                    Pageable pageable);
+    ResponseEntity<Response<CharacterResponse>> getCharacters(@RequestParam("filters") Map<String, String> filters,
+                                                              Pageable pageable);
 
-    @GetMapping("/api/episode/{ids}")
-    ResponseEntity<ClientResponse<EpisodeResponse>>  getEpisodes(@RequestParam("ids") String... ids);
+    @GetMapping("/api/episode/{ids[]}")
+    ResponseEntity<Response<EpisodeResponse>> getEpisodes(@RequestParam("ids") Integer... ids);
+
 
 }

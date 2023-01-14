@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,8 +17,11 @@ public class Character {
     private String status;
     private String url;
     private String created;
+    private Set<Episode> episodes;
 
-    private List<Episode> episode;
+    private List<Integer> episodeIds;
+
+
 
 
 }

@@ -3,22 +3,18 @@ package com.github.fabriciossouza.rickandmortyapi.api.controller;
 
 import org.springframework.http.ResponseEntity;
 
-import java.util.List;
-
-import static com.github.fabriciossouza.rickandmortyapi.core.util.GenericMapper.converterCollection;
+import static com.github.fabriciossouza.rickandmortyapi.core.util.GenericMapper.converter;
 import static org.springframework.http.ResponseEntity.notFound;
 import static org.springframework.http.ResponseEntity.ok;
 
 public abstract class BaseController {
 
-	protected  <T> List<T> build(List<?> objects, Class<T> clazz) {
-		return converterCollection(objects, clazz);
+	public <T> T build(Object object, Class<T> clazz) {
+		return converter(object, clazz);
 	}
 
-	protected ResponseEntity getList(final List<?> responses, Class cls){
-
-		return responses != null && !responses.isEmpty()
-				? ok(build(responses, cls))
+	protected ResponseEntity get(Object object, Class cls){
+		return object != null ? ok(build(object, cls))
 				: notFound().build();
 	}
 

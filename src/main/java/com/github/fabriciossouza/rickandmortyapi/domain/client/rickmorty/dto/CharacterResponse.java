@@ -1,5 +1,6 @@
 package com.github.fabriciossouza.rickandmortyapi.domain.client.rickmorty.dto;
 
+import com.github.fabriciossouza.rickandmortyapi.core.util.StringUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,5 +20,14 @@ public class CharacterResponse {
 
     private List<String> episode;
 
+    private List<Integer> episodeIds;
 
+    public void setEpisode(List<String> episodes) {
+        if(episodes != null && !episodes.isEmpty()) {
+            this.episode = episodes;
+            this.episodeIds = episodes.stream()
+                    .map(StringUtil::getNumberByString)
+                    .toList();
+        }
+    }
 }
