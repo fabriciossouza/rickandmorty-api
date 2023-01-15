@@ -16,7 +16,5 @@ public final class StringUtil {
 
     public static String getNumber(String str) {
         return str != null ? str.replaceAll("[^0-9]", "") : null;
-
-
     }
 }

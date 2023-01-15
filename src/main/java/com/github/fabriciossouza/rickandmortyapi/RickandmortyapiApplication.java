@@ -1,8 +1,9 @@
 package com.github.fabriciossouza.rickandmortyapi;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+
+import static org.springframework.boot.SpringApplication.run;
 
 
 @EnableFeignClients(basePackages = "com.github.fabriciossouza.rickandmortyapi.domain.client")
@@ -10,7 +11,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 public class RickandmortyapiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RickandmortyapiApplication.class, args);
+		run(RickandmortyapiApplication.class, args);
 	}
 
 }
