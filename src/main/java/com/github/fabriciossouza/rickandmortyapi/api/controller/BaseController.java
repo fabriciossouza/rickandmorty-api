@@ -13,7 +13,7 @@ public abstract class BaseController {
 		return converter(object, clazz);
 	}
 
-	protected ResponseEntity get(Object object, Class cls){
+	protected ResponseEntity convert(Object object, Class cls){
 		return object != null ? ok(build(object, cls))
 				: notFound().build();
 	}

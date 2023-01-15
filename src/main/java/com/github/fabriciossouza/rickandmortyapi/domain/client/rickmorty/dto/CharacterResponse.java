@@ -17,14 +17,10 @@ public class CharacterResponse {
     private String status;
     private String url;
     private String created;
-
-    private List<String> episode;
-
     private List<Integer> episodeIds;
 
     public void setEpisode(List<String> episodes) {
         if(episodes != null && !episodes.isEmpty()) {
-            this.episode = episodes;
             this.episodeIds = episodes.stream()
                     .map(StringUtil::getNumberByString)
                     .toList();

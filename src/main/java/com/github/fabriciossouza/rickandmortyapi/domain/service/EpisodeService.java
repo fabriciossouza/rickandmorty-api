@@ -12,9 +12,7 @@ import java.util.Set;
 
 import static com.github.fabriciossouza.rickandmortyapi.core.util.GenericMapper.converter;
 import static com.github.fabriciossouza.rickandmortyapi.core.util.GenericMapper.converterCollection;
-import static com.github.fabriciossouza.rickandmortyapi.core.util.StringUtil.getNumberByString;
 import static java.util.Arrays.asList;
-import static java.util.stream.Collectors.toSet;
 
 
 @Service
@@ -22,8 +20,7 @@ import static java.util.stream.Collectors.toSet;
 public class EpisodeService {
     private final RickMortyClient rickMortyClient;
 
-    public List<Episode> getEpisodesByUrl(Set<String> urls) {
-        Set<Integer> episodesIds = converterUrlEpisodeInEpisodeIds(urls);
+    public List<Episode> getEpisodes(Set<Integer> episodesIds) {
 
         if (episodesIds == null || episodesIds.isEmpty()) {
             return new ArrayList();
@@ -47,13 +44,6 @@ public class EpisodeService {
         var rickMortyClientEpisodes = rickMortyClient.getEpisodes(episodesId);
         var results = rickMortyClientEpisodes.getBody();
         return converter(results, Episode.class);
-    }
-
-    private Set<Integer> converterUrlEpisodeInEpisodeIds(final Set<String> urls) {
-        return urls.stream()
-                .map(episode -> getNumberByString(episode))
-                .collect(toSet());
-
     }
 
 }

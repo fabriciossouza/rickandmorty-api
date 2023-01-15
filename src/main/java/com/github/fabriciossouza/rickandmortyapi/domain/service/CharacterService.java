@@ -18,6 +18,7 @@ import java.util.Set;
 
 import static com.github.fabriciossouza.rickandmortyapi.core.util.GenericMapper.converter;
 import static com.github.fabriciossouza.rickandmortyapi.core.util.GenericMapper.converterCollection;
+import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 
 
@@ -44,13 +45,15 @@ public class CharacterService {
         var characterResponses = response.getResults();
 
         var characters = converterCollection(response.getResults(), Character.class);
-        var episodes = getEpisodeLinksByCharacters(characterResponses);
+        var episodes = getEpisodesByCharacters(characterResponses);
 
-        //TODO: arrumar uma maneira melhor
         characters.forEach(character -> {
-            Set<Episode> episodesByCharacter = episodes.stream()
-                    .filter(episode -> character.getEpisodeIds().stream().anyMatch( c-> episode.getId().equals(c)))
-                    .collect(toSet());
+            var characterEpisodeIds = character.getEpisodeIds();
+            var episodesByCharacter = episodes.stream()
+                    .filter(episode -> characterEpisodeIds.stream()
+                            .anyMatch(id -> id.equals(episode.getId())))
+                    .collect(toList());
+
             character.setEpisodes(episodesByCharacter);
         });
 
@@ -62,13 +65,12 @@ public class CharacterService {
             .build();
     }
 
-
-    private List<Episode> getEpisodeLinksByCharacters(List<CharacterResponse> characterResponses) {
-        Set<String> links = characterResponses.parallelStream()
-                .flatMap(character -> character.getEpisode().stream())
+    private List<Episode> getEpisodesByCharacters(List<CharacterResponse> characterResponses) {
+        Set<Integer> episodesIds = characterResponses.parallelStream()
+                .flatMap(character -> character.getEpisodeIds().stream())
                 .collect(toSet());
 
-        return episodeService.getEpisodesByUrl(links);
+        return episodeService.getEpisodes(episodesIds);
     }
 
     private HashMap<String, String> getFilters(String name) {
