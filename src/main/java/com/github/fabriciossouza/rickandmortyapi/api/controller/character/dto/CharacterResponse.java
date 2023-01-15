@@ -16,6 +16,7 @@ public class CharacterResponse {
 
     private Integer id;
     private String name;
+    private String image;
     private String status;
     private String url;
     private String created;

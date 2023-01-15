@@ -4,9 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RickandmortyapiApplicationTests {
+class RickandMortyApplicationTests {
 
-	//TODO: INCLUIR TESTES
 	@Test
 	void contextLoads() {
 	}

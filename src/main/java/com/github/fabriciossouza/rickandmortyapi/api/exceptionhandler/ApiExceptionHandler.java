@@ -57,7 +57,6 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         List<Problem.Object> problemObjects = bindingResult.getAllErrors().stream()
                 .map(objectError -> {
                     String message = messageSource.getMessage(objectError, getLocale());
-
                     String name = objectError.getObjectName();
 
                     if (objectError instanceof FieldError) {

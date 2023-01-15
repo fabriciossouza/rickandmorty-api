@@ -16,6 +16,7 @@ public class CharacterResponse {
     private String name;
     private String status;
     private String url;
+    private String image;
     private String created;
     private List<Integer> episodeIds;
 
