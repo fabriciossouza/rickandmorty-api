@@ -1,7 +1,7 @@
 package com.github.fabriciossouza.rickandmortyapi.api.controller.character;
 
-import com.github.fabriciossouza.rickandmortyapi.api.controller.BaseController;
 import com.github.fabriciossouza.rickandmortyapi.api.controller.character.dto.CharactersResponse;
+import com.github.fabriciossouza.rickandmortyapi.api.controller.BaseController;
 import com.github.fabriciossouza.rickandmortyapi.api.controller.character.dto.input.CharacterFilter;
 import com.github.fabriciossouza.rickandmortyapi.domain.service.CharacterService;
 import lombok.RequiredArgsConstructor;

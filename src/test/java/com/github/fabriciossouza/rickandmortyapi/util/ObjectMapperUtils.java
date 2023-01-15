@@ -8,7 +8,7 @@ public class ObjectMapperUtils {
 
     private static ObjectMapper objectMapper;
 
-    public static ObjectMapper get() {
+    public static ObjectMapper getMapper() {
         if(objectMapper == null) {
             objectMapper = new ObjectMapper();
             objectMapper.configure(FAIL_ON_UNKNOWN_PROPERTIES, false);

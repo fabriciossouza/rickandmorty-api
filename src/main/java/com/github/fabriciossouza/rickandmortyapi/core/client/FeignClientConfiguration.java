@@ -6,6 +6,8 @@ import feign.codec.ErrorDecoder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import static feign.Logger.Level.FULL;
+
 @Configuration
 public class FeignClientConfiguration {
 
@@ -17,7 +19,7 @@ public class FeignClientConfiguration {
 
     @Bean
     Logger.Level feignLoggerLevel() {
-        return Logger.Level.FULL;
+        return FULL;
     }
 
 

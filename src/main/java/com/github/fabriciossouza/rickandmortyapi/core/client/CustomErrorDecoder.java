@@ -10,13 +10,9 @@ public class CustomErrorDecoder implements ErrorDecoder {
     //TODO: implement
     @Override
     public Exception decode(String methodKey, Response response) {
-        switch (response.status()){
-           // case 400:
-            //    return new BadRequestException();
+        switch (response.status()) {
             case 404:
-                return new CharacterNotFoundException(response.body().toString());
-            //case 503:
-             //   return new ProductServiceNotAvailableException("Product Api is unavailable");
+                return new CharacterNotFoundException();
             default:
                 return new Exception("messae");
         }
