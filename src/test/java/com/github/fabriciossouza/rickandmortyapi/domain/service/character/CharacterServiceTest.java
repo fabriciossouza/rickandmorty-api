@@ -58,7 +58,7 @@ public class CharacterServiceTest {
     @Test
     void deveRetornarListaDeTodosPersonagens() {
 
-        var characterResponseResponse = getCharacterResponseResponse("json/character/get-all-character.json");
+        var characterResponseResponse = getCharacterResponseResponse("/json/character/get-all-character.json");
 
         when(rickMortyClient.getCharacters(any(), any()))
                 .thenReturn(ok(characterResponseResponse));
@@ -88,7 +88,7 @@ public class CharacterServiceTest {
 
         var personagem = "Jim";
 
-        var characterResponseResponse = getCharacterResponseResponse("json/character/get-only-character.json");
+        var characterResponseResponse = getCharacterResponseResponse("/json/character/get-only-character.json");
 
         when(rickMortyClient.getCharacters(any(), any()))
                 .thenReturn(ok(characterResponseResponse));
