@@ -1,31 +1,20 @@
-[![Build status]()]()
-[![Quality Gate]()]()
-[![Coverage]()]()
+[![The Rick and Morty API](https://repository-images.githubusercontent.com/120371205/b6740400-92d4-11ea-8a13-d5f6e0558e9b)](https://rickandmortyapi.com)
 
-# {rickandmorty-api}
-{DESCRIÇÃO DA APLICAÇÃO}
+# The Rick and Morty API
 
+***The Rick and Morty API** is a RESTful and API based on the television show 
 
-## Teste Unitário
-Execute a linha de comando:
-```sh
+## Getting Started
+**Check out the [Swagger](https://rickandmorty-api.herokuapp.com/swagger-ui/index.html) to get started**
 
-```
+## JavaScript client
+The Rick and Morty API JavaScript client. 
 
-## Swagger
-- {URL DA APLICAÇÃO}
+- [View on GitHub](https://github.com/fabriciossouza/rickandmorty-web)
 
-## {ENDPOINTS}
-- QA: {ENDPOINT DE QA}
-- PROD: {ENDPOINT DE PROD}
+## API collections
+- [Postman collection for the Rick and Morty API](https://github.com/loopDelicious/rick-and-morty-postman) by [loopDelicious](https://github.com/loopDelicious)
+- [Insomnia collection for the Rick and Morty API](https://github.com/filfreire/rick-and-morty-insomnia) by [filfreire](https://github.com/filfreire)
 
-Contexto: {NOME DA APLICAÇÃO}
-
-## {RODAR A APLICAÇÃO}
-Execute a linha de comando:
-``` sh
-
-```
-
-## {MATRIZ DE RESILIÊNCIA}
-{COLOCAR O DESENHO DA MATRIZ DE RESILIÊNCIA (Ex essa abaixo)}
+## Website
+You can check the code of the website [here](https://rickandmorty.herokuapp.com)
