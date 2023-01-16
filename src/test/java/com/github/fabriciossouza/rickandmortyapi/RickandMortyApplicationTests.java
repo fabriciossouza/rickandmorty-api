@@ -3,7 +3,8 @@ package com.github.fabriciossouza.rickandmortyapi;
 
 import com.github.fabriciossouza.rickandmortyapi.api.controller.character.dto.CharacterResponse;
 import com.github.fabriciossouza.rickandmortyapi.api.controller.character.dto.CharactersResponse;
-import com.github.fabriciossouza.rickandmortyapi.api.controller.character.dto.PageResponse;
+import lombok.SneakyThrows;
+import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,6 +21,7 @@ import java.util.List;
 import static java.util.UUID.randomUUID;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 import static org.springframework.http.HttpStatus.OK;
 
@@ -44,15 +46,32 @@ public class RickandMortyApplicationTests {
 	public void deveRetornarUmaPaginaPaginadaDosPersonagens() throws Exception {
 		final String url = new URL(BASE_URL).toString();
 
-		ResponseEntity<CharactersResponse> response = restTemplate.getForEntity(url, CharactersResponse.class);
-
+		var response = restTemplate.getForEntity(url, CharactersResponse.class);
 		List<CharacterResponse> characters = response.getBody().getCharacters();
-		PageResponse pageResponse = response.getBody().getInfo();
 
 		assertEquals(response.getStatusCode(), OK);
 		assertThat(characters).hasSize(20);
-		assertThat(pageResponse.getCount()).isEqualTo(826);
-		assertThat(pageResponse.getPages()).isEqualTo(42);
+	}
+
+	@Test
+	@SneakyThrows
+	@DisplayName("Deve validar o retorno da lista de todos os personagens")
+	public void devaValidarRetornoDaListagemDePersonagens() throws Exception {
+		final String url = new URL(BASE_URL).toString();
+
+		var response = restTemplate.getForEntity(url, String.class);
+		assertEquals(response.getStatusCode(), OK);
+
+		var jsonResponse = new JSONObject(response.getBody());
+
+		var pageResponse = jsonResponse.getJSONObject("info");
+		var characters = jsonResponse.getJSONArray("characters");
+
+		assertTrue(pageResponse.has("count"));
+		assertTrue(pageResponse.has("pages"));
+		assertTrue(pageResponse.has("next"));
+		assertTrue(pageResponse.has("prev"));
+		assertThat(characters.length()).isEqualTo(20);
 	}
 
 	@Test

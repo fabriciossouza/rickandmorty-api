@@ -1,8 +1,6 @@
 [![Build status]()]()
 [![Quality Gate]()]()
 [![Coverage]()]()
-[![Maintainnability]()] ()
-[![Security]()] ()
 
 # {rickandmorty-api}
 {DESCRIÇÃO DA APLICAÇÃO}

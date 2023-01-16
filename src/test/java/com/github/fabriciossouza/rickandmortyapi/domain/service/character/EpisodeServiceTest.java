@@ -57,7 +57,7 @@ public class EpisodeServiceTest {
                 .mapToObj(i -> i).
                 collect(toSet());
 
-        var episodesResponse = getEpisodesResponse("/json/episode/get-episodes.json");
+        var episodesResponse = getEpisodesResponse("json/episode/get-episodes.json");
         when(rickMortyClient.getEpisodes(episodeIds))
                 .thenReturn(ok(episodesResponse));
 
@@ -77,7 +77,7 @@ public class EpisodeServiceTest {
                 .mapToObj(i -> i).
                 collect(toSet());
 
-        var episodeResponse = getEpisodeResponse("/json/episode/get-episode.json");
+        var episodeResponse = getEpisodeResponse("json/episode/get-episode.json");
         Integer episodeId = episodeIds.stream().findFirst().get();
 
         when(rickMortyClient.getEpisodes(episodeId))
@@ -93,17 +93,13 @@ public class EpisodeServiceTest {
     @SneakyThrows
     private List<EpisodeResponse> getEpisodesResponse(String json) {
         ObjectMapper objectMapper = getMapper();
-        return objectMapper.readValue(getStringFromResource(json), new TypeReference<List<EpisodeResponse>>() {});
+        return objectMapper.readValue(getFileStringFromResource(this.getClass(), json), new TypeReference<List<EpisodeResponse>>() {});
     }
 
     @SneakyThrows
     private EpisodeResponse getEpisodeResponse(String json)  {
         ObjectMapper objectMapper = getMapper();
-        return objectMapper.readValue(getStringFromResource(json), EpisodeResponse.class);
-    }
-
-    private String getStringFromResource(String json) {
-        return getFileStringFromResource(json);
+        return objectMapper.readValue(getFileStringFromResource(this.getClass(), json), EpisodeResponse.class);
     }
 
 
