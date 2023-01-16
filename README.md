@@ -2,7 +2,7 @@
 
 # The Rick and Morty API
 
-***The Rick and Morty API** is a RESTful and API based on the television show 
+**The Rick and Morty API** is a RESTful and API based on the television show 
 
 ## Getting Started
 **Check out the [Swagger](https://rickandmorty-api.herokuapp.com/swagger-ui/index.html) to get started**
@@ -17,4 +17,4 @@ The Rick and Morty API JavaScript client.
 - [Insomnia collection for the Rick and Morty API](https://github.com/filfreire/rick-and-morty-insomnia) by [filfreire](https://github.com/filfreire)
 
 ## Website
-You can check the code of the website [here](https://rickandmorty.herokuapp.com)
+You can check the website [here](https://rickandmorty.herokuapp.com)
