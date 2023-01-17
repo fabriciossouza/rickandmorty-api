@@ -93,14 +93,13 @@ public class EpisodeServiceTest {
     @SneakyThrows
     private List<EpisodeResponse> getEpisodesResponse(String json) {
         ObjectMapper objectMapper = getMapper();
-        return objectMapper.readValue(getFileStringFromResource(this.getClass(), json), new TypeReference<List<EpisodeResponse>>() {});
+        return objectMapper.readValue(getFileStringFromResource(json), new TypeReference<List<EpisodeResponse>>() {});
     }
 
     @SneakyThrows
     private EpisodeResponse getEpisodeResponse(String json)  {
         ObjectMapper objectMapper = getMapper();
-        return objectMapper.readValue(getFileStringFromResource(this.getClass(), json), EpisodeResponse.class);
+        return objectMapper.readValue(getFileStringFromResource(json), EpisodeResponse.class);
     }
-
 
 }

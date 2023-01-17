@@ -58,7 +58,7 @@ public class CharacterServiceTest {
     @Test
     void deveRetornarListaDeTodosPersonagens() {
 
-        var characterResponseResponse = getCharacterResponseResponse( "json/character/get-all-character.json");
+        var characterResponseResponse = getCharacterResponseResponse("json/character/get-all-character.json");
 
         when(rickMortyClient.getCharacters(any(), any()))
                 .thenReturn(ok(characterResponseResponse));
@@ -113,7 +113,7 @@ public class CharacterServiceTest {
 
     private Response<CharacterResponse> getCharacterResponseResponse(String json) throws JsonProcessingException {
         ObjectMapper objectMapper = getMapper();
-        String fileStringFromResource = getFileStringFromResource(getClass(), json);
+        String fileStringFromResource = getFileStringFromResource(json);
         return  objectMapper.readValue(fileStringFromResource, new TypeReference<Response<CharacterResponse>>() {});
     }
 

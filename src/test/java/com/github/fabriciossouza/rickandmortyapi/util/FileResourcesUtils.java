@@ -1,12 +1,8 @@
 package com.github.fabriciossouza.rickandmortyapi.util;
 
-import com.github.fabriciossouza.rickandmortyapi.domain.service.character.CharacterServiceTest;
 import lombok.SneakyThrows;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
@@ -15,9 +11,9 @@ public class FileResourcesUtils {
 
     @SneakyThrows
 
-    public static String getFileStringFromResource(Class clazz, String fileName) {
+    public static String getFileStringFromResource(String fileName) {
 
-        InputStream inputStream = clazz.getClassLoader().getResourceAsStream(fileName);
+        var inputStream = FileResourcesUtils.class.getClassLoader().getResourceAsStream(fileName);
         if (inputStream == null) {
             throw new IllegalArgumentException("file not found! " + fileName);
         } else {
