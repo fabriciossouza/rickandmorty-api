@@ -21,7 +21,7 @@
 - Docker
 
 ## JavaScript client
-The Rick and Morty API JavaScript client. 
+The Rick and Morty JavaScript client. 
 
 - [View on GitHub](https://github.com/fabriciossouza/rickandmorty-web)
 
