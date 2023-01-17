@@ -9,6 +9,17 @@
 
 **Check out the [API Documentation](https://rickandmortyapi.com/documentation/)**
 
+## Technology Stack:
+- Java 17
+- Spring Boot 2.7.7
+- Spring Cloud OpenFeign
+- JUnit 5
+- SpringDoc / Swagger
+- Lombok
+- Model mapper
+- Maven
+- Docker
+
 ## JavaScript client
 The Rick and Morty API JavaScript client. 
 

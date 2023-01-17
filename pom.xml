@@ -12,7 +12,7 @@
 	<artifactId>rickandmorty-api</artifactId>
 	<version>1.0.0</version>
 	<name>rickandmortyapi</name>
-	<description>Aplicação para listagem personagens da série Ricky and Morty</description>
+	<description>Aplicação REST para listagem personagens da série Ricky and Morty</description>
 	<properties>
 		<java.version>17</java.version>
 		<spring-cloud.version>2021.0.5</spring-cloud.version>
